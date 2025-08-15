@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="WpfAppAi.Components.UserComponentItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfAppAi.Components"
+             xmlns:model="clr-namespace:WpfAppAi.Model"
+             xmlns:converters="clr-namespace:WpfAppAi.Common"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400"
+             d:DataContext="{d:DesignInstance Type=model:Item}">
+    <UserControl.Resources>
+        <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1">
+            <Grid>
+                <RadioButton x:Name="UserConfigYes" Content="启用" HorizontalAlignment="Left" Margin="32,20,0,0" VerticalAlignment="Top" GroupName="{Binding EnableGroupId}" IsChecked="{Binding IsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <RadioButton Content="停用" HorizontalAlignment="Left" Margin="102,20,0,0" VerticalAlignment="Top" GroupName="{Binding EnableGroupId}" IsChecked="{Binding IsEnabled,Converter={StaticResource BooleanNegationConverter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Label Content="服务名：" HorizontalAlignment="Left" Margin="32,50,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="102,50,0,0" TextWrapping="Wrap" Text="{Binding Key}" VerticalAlignment="Top" Width="271" Height="21"/>
+
+                <Label Content="启动文件：" HorizontalAlignment="Left" Margin="32,80,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="102,80,0,0" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top" Width="271" Height="23"/>
+
+                <Label Content="启动端口：" HorizontalAlignment="Left" Margin="32,110,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="102,110,0,0" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="271" Height="21"/>
+
+                <Label Content="启动参数：" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="102,140,0,0" TextWrapping="Wrap" Text="{Binding Arg}" VerticalAlignment="Top" Width="271" Height="70" MinLines="4"/>
+
+                <Label Content="等待程序退出：" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top"/>
+                <RadioButton Content="是" HorizontalAlignment="Left" Margin="124,216,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
+                <RadioButton Content="否" Margin="183,216,184,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit, Converter={StaticResource BooleanNegationConverter}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GroupName="{Binding Key}" />
+            </Grid>
+        </Border>
+
+    </Grid>
+</UserControl>

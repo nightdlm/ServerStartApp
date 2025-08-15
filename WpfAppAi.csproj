@@ -11,18 +11,22 @@
 
   <ItemGroup>
     <!-- 分开定义不同类型的资源 -->
-    <Resource Include="Resources\staticResource.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
     <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\setting.png" />
+	<EmbeddedResource Include="ItemConfig.xml">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <!-- 其他需要复制的文件 -->
-    <None Include="Server\**\*;Common\**\*">
+    <None Include="Server\**\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AntdUI" Version="2.1.0" />
+  </ItemGroup>
 
 </Project>

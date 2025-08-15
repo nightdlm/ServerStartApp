@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WpfAppAi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+586ffdecf8947b391df302d8411d6921c3cdbcf9")]
 [assembly: System.Reflection.AssemblyProductAttribute("WpfAppAi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WpfAppAi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

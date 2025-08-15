@@ -1,52 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Items>
 	<Item>
+		<IsEnabled>false</IsEnabled>
 		<Key>CacheServer</Key>
 		<FilePath>Server\redis\redis-server.exe</FilePath>
 		<Port>6390</Port>
-		<Args>
-			<Arg>Server\redis\redis.windows-service.conf</Arg>
-		</Args>
+		<Arg>Server\redis\redis.windows-service.conf</Arg>
 		<WaitForExit>false</WaitForExit>
 	</Item>
 
 	<Item>
+		<IsEnabled>false</IsEnabled>
 		<Key>InitServer</Key>
 		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
-		<Args>
-			<Arg>--initialize-insecure</Arg>
-			<Arg>--console</Arg>
-		</Args>
+		<Arg>--initialize-insecure --console</Arg>
 		<WaitForExit>true</WaitForExit>
 	</Item>
 
 	<Item>
+		<IsEnabled>false</IsEnabled>
 		<Key>StorageServer</Key>
 		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
 		<Port>3309</Port>
-		<Args>
-			<Arg>--console</Arg>
-		</Args>
+		<Arg>--console</Arg>
 		<WaitForExit>false</WaitForExit>
-	</Item>
+	
+</Item>
 
 	<Item>
+		<IsEnabled>false</IsEnabled>
 		<Key>WebServer</Key>
 		<FilePath>Server\jdk\bin\java.exe</FilePath>
 		<Port>11025</Port>
-		<Args>
-			<Arg>-jar</Arg>
-			<Arg>Server\app\app.jar</Arg>
-			<Arg>--spring.config.location=Server\app\application.yml</Arg>
-		</Args>
+		<Arg>-jar Server\app\app.jar --spring.config.location=Server\app\application.yml</Arg>
 		<WaitForExit>false</WaitForExit>
-	</Item>
+	
+</Item>
 
 	<Item>
+		<IsEnabled>false</IsEnabled>
 		<Key>NginxServer</Key>
 		<FilePath>Server\nginx\nginx.exe</FilePath>
+		<Arg>-p Server\nginx\</Arg>
 		<Port>11010</Port>
 		<WaitForExit>false</WaitForExit>
+	
+</Item>
+	<Item>
+		<IsEnabled>true</IsEnabled>
+		<Key>HtmlSever</Key>
+		<FilePath>cmd.exe</FilePath>
+		<Arg>/c start http://192.168.1.50</Arg>
+		<WaitForExit>false</WaitForExit>
+
 	</Item>
 </Items>
 

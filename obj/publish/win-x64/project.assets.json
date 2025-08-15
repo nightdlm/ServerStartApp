@@ -2,6 +2,22 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "AntdUI/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
       "Microsoft.NET.ILLink.Tasks/8.0.18": {
         "type": "package",
         "build": {
@@ -10,6 +26,22 @@
       }
     },
     "net8.0-windows7.0/win-x64": {
+      "AntdUI/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
       "Microsoft.NET.ILLink.Tasks/8.0.18": {
         "type": "package",
         "build": {
@@ -19,6 +51,31 @@
     }
   },
   "libraries": {
+    "AntdUI/2.1.0": {
+      "sha512": "nscyB5nUxywmwgEss8f0JWs0nn6OAiiHAJN4bigJid9FReCoPqYqyFQIbMdNovWe4rZbY1n9S4cUMUGG0gLVNA==",
+      "type": "package",
+      "path": "antdui/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "antdui.2.1.0.nupkg.sha512",
+        "antdui.nuspec",
+        "lib/net40/AntdUI.dll",
+        "lib/net40/AntdUI.xml",
+        "lib/net46/AntdUI.dll",
+        "lib/net46/AntdUI.xml",
+        "lib/net48/AntdUI.dll",
+        "lib/net48/AntdUI.xml",
+        "lib/net6.0-windows7.0/AntdUI.dll",
+        "lib/net6.0-windows7.0/AntdUI.xml",
+        "lib/net8.0-windows7.0/AntdUI.dll",
+        "lib/net8.0-windows7.0/AntdUI.xml",
+        "lib/net9.0-windows7.0/AntdUI.dll",
+        "lib/net9.0-windows7.0/AntdUI.xml",
+        "logo.png"
+      ]
+    },
     "Microsoft.NET.ILLink.Tasks/8.0.18": {
       "sha512": "OiXqr2YIBEV9dsAWEtasK470ALyJ0VxJ9k4MotOxlWV6HeEgrJKYMW4HHj1OCCXvqE0/A25wEKPkpfiBARgDZA==",
       "type": "package",
@@ -73,6 +130,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "AntdUI >= 2.1.0",
       "Microsoft.NET.ILLink.Tasks >= 8.0.18"
     ]
   },
@@ -126,6 +184,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "AntdUI": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          },
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",

@@ -1,11 +1,56 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {}
+    "net8.0-windows7.0": {
+      "AntdUI/2.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/AntdUI.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AntdUI/2.1.0": {
+      "sha512": "nscyB5nUxywmwgEss8f0JWs0nn6OAiiHAJN4bigJid9FReCoPqYqyFQIbMdNovWe4rZbY1n9S4cUMUGG0gLVNA==",
+      "type": "package",
+      "path": "antdui/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "antdui.2.1.0.nupkg.sha512",
+        "antdui.nuspec",
+        "lib/net40/AntdUI.dll",
+        "lib/net40/AntdUI.xml",
+        "lib/net46/AntdUI.dll",
+        "lib/net46/AntdUI.xml",
+        "lib/net48/AntdUI.dll",
+        "lib/net48/AntdUI.xml",
+        "lib/net6.0-windows7.0/AntdUI.dll",
+        "lib/net6.0-windows7.0/AntdUI.xml",
+        "lib/net8.0-windows7.0/AntdUI.dll",
+        "lib/net8.0-windows7.0/AntdUI.xml",
+        "lib/net9.0-windows7.0/AntdUI.dll",
+        "lib/net9.0-windows7.0/AntdUI.xml",
+        "logo.png"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0-windows7.0": []
+    "net8.0-windows7.0": [
+      "AntdUI >= 2.1.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\admin\\.nuget\\packages\\": {},
@@ -56,6 +101,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "AntdUI": {
+            "target": "Package",
+            "version": "[2.1.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

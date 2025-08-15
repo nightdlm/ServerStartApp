@@ -17,6 +17,7 @@ namespace WpfAppAi
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
 
@@ -48,13 +49,11 @@ namespace WpfAppAi
             {
                 StopServer.IsEnabled = true;
                 StartServer.IsEnabled = false;
-                foreach (Item item in StartProgressUtil.Instance.ItemList)
+                foreach (Item item in ConfigOperationUtil.Instance.ItemList)
                 {
-                    string args = " ";
-                    foreach (string arg in item.Args)
-                    {
-                        args = args + "" + arg; ;
-                    }
+                    if(!item.IsEnabled) continue;
+
+                    string args = " " + item.Arg;
 
                     if (item.Port != 0)
                     {
@@ -118,7 +117,14 @@ namespace WpfAppAi
             StartServer.IsEnabled = true;
         }
 
-        
+
+        private void Setting_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+           
+            Setting setting = new() { Owner = this };
+            setting.Show();
+            this.Hide();
+        }
     }
 
 }
