@@ -787,3 +787,4 @@ D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\refint\WpfAppAi.dll
 D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\WpfAppAi.pdb
 D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\WpfAppAi.genruntimeconfig.cache
 D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\ref\WpfAppAi.dll
+D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\WpfAppAi.sourcelink.json

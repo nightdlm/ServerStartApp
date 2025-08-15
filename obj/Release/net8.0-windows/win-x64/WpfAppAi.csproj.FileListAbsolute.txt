@@ -1247,3 +1247,4 @@ D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\win-x64\WpfAppAi.pdb
 D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\win-x64\WpfAppAi.genruntimeconfig.cache
 D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\win-x64\ref\WpfAppAi.dll
 D:\ProgramData\WpfAppAi\bin\Release\net8.0-windows\win-x64\Common\StartProgressUtil.cs
+D:\ProgramData\WpfAppAi\obj\Release\net8.0-windows\win-x64\WpfAppAi.sourcelink.json

@@ -8,7 +8,7 @@ namespace WpfAppAi
 {
     public class StartProgressUtil
     {
-        private static readonly string configPath = @"D:\ProgramData\WpfAppAi\ItemConfig.xml";
+        private static readonly string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"ItemConfig.xml");
 
         public static Items Instance { get; set; } = new Items();
 

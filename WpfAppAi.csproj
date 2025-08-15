@@ -15,14 +15,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Resource>
     <Resource Include="Resources\logo.png" />
+	<EmbeddedResource Include="ItemConfig.xml">
+	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <!-- 其他需要复制的文件 -->
-    <None Include="Server\**\*;Common\**\*">
+    <None Include="Server\**\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
 
 </Project>

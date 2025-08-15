@@ -766,7 +766,6 @@ D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Server\redis\redis.windows-serv
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Server\redis\redis.windows.conf
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Server\redis\RELEASENOTES.txt
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Server\redis\stdout
-D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Common\ProcessManager.cs
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\WpfAppAi.deps.json
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\WpfAppAi.runtimeconfig.json
 D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\WpfAppAi.dll
@@ -786,4 +785,5 @@ D:\ProgramData\WpfAppAi\obj\Debug\net8.0-windows\refint\WpfAppAi.dll
 D:\ProgramData\WpfAppAi\obj\Debug\net8.0-windows\WpfAppAi.pdb
 D:\ProgramData\WpfAppAi\obj\Debug\net8.0-windows\WpfAppAi.genruntimeconfig.cache
 D:\ProgramData\WpfAppAi\obj\Debug\net8.0-windows\ref\WpfAppAi.dll
-D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\Common\StartProgressUtil.cs
+D:\ProgramData\WpfAppAi\obj\Debug\net8.0-windows\WpfAppAi.sourcelink.json
+D:\ProgramData\WpfAppAi\bin\Debug\net8.0-windows\ItemConfig.xml
