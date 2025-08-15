@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+	<Item>
+		<Key>CacheServer</Key>
+		<FilePath>Server\redis\redis-server.exe</FilePath>
+		<Port>6390</Port>
+		<Args>
+			<Arg>Server\redis\redis.windows-service.conf</Arg>
+		</Args>
+		<WaitForExit>false</WaitForExit>
+	</Item>
+
+	<Item>
+		<Key>InitServer</Key>
+		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
+		<Args>
+			<Arg>--initialize-insecure</Arg>
+			<Arg>--console</Arg>
+		</Args>
+		<WaitForExit>true</WaitForExit>
+	</Item>
+
+	<Item>
+		<Key>StorageServer</Key>
+		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
+		<Port>3309</Port>
+		<Args>
+			<Arg>--console</Arg>
+		</Args>
+		<WaitForExit>false</WaitForExit>
+	</Item>
+
+	<Item>
+		<Key>WebServer</Key>
+		<FilePath>Server\jdk\bin\java.exe</FilePath>
+		<Port>11025</Port>
+		<Args>
+			<Arg>-jar</Arg>
+			<Arg>Server\app\app.jar</Arg>
+			<Arg>--spring.config.location=Server\app\application.yml</Arg>
+		</Args>
+		<WaitForExit>false</WaitForExit>
+	</Item>
+
+	<Item>
+		<Key>NginxServer</Key>
+		<FilePath>Server\nginx\nginx.exe</FilePath>
+		<Port>11010</Port>
+		<WaitForExit>false</WaitForExit>
+	</Item>
+</Items>
+
+

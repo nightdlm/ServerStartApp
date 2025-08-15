@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfAppAi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppAi"
+        mc:Ignorable="d"
+        Title="服务管理AI" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/Resources/logo.png" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
+    <!-- Window只能有一个直接子元素，这里使用Grid -->
+    <Grid>
+
+        <Button Cursor="Hand" x:Name="StartServer" Content="一键启动" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Margin="50,20,0,0" Foreground="Black" Background="#FF8DBBF9" Click="StartServer_Click"/>
+        <Button Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" IsEnabled="False" Margin="150,20,0,0"/>
+        <TextBox x:Name="ServerLog" Margin="0,64,0,0" TextWrapping="Wrap" Text="" TextChanged="ServerLog_TextChanged"/>
+
+    </Grid>
+</Window>
