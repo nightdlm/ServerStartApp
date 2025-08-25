@@ -8,7 +8,7 @@
         xmlns:model="clr-namespace:WpfAppAi.Model"
         x:Class="WpfAppAi.Setting"
         mc:Ignorable="d"
-        Title="设置" Height="450" Width="800" x:Name="SettingPage" Icon="/Resources/setting.png" WindowStartupLocation="CenterOwner" Cursor="">
+        Title="设置" MinHeight="450" MinWidth="800" Height="450" Width="800" x:Name="SettingPage" Icon="/Resources/setting.png" WindowStartupLocation="CenterOwner" Cursor="">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <!-- 用StackPanel垂直排列列表和按钮 -->
@@ -29,15 +29,16 @@
 
                 <!-- 添加按钮（独占一行） -->
                 <Button 
-                    Content="添加" 
+                    Content="新增" 
                     Height="35"
                     Margin="0,15,0,0"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Stretch"
                     Click="Add_Click"
                     Cursor="Hand"
                     Padding="15,0"
                     Background="#FF6B8E23" Foreground="White"
-                    BorderThickness="0" Width="802"/>
+                    BorderThickness="0" />
+                
             </StackPanel>
 
 
