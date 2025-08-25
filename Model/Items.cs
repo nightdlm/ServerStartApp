@@ -1,4 +1,5 @@
 ﻿
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
@@ -8,7 +9,7 @@ namespace WpfAppAi.Model
     public class Items
     {
         [XmlElement("Item")]
-        public List<Item> ItemList { get; set; } = [];
+        public ObservableCollection<Item> ItemList { get; set; } = [];
 
     }
 
@@ -121,6 +122,7 @@ namespace WpfAppAi.Model
         //[XmlArray("Args")]
         //[XmlArrayItem("Arg")]
         //public List<string> Args { get; set; } = new List<string>();
+
     }
 
 }

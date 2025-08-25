@@ -57,6 +57,9 @@ namespace WpfAppAi
             ConfigOperationUtil.SaveConfig();
         }
 
-
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            ConfigOperationUtil.AddItem();
+        }
     }
 }

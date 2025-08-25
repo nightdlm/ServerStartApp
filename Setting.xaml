@@ -8,26 +8,39 @@
         xmlns:model="clr-namespace:WpfAppAi.Model"
         x:Class="WpfAppAi.Setting"
         mc:Ignorable="d"
-        Title="设置" Height="450" Width="800" x:Name="SettingPage" Icon="/Resources/setting.png" WindowStartupLocation="CenterOwner" Background="#FFDED2D2">
+        Title="设置" Height="450" Width="800" x:Name="SettingPage" Icon="/Resources/setting.png" WindowStartupLocation="CenterOwner" Cursor="">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            <!-- 使用ItemsControl动态生成控件 -->
-            <ItemsControl ItemsSource="{Binding ItemList}">
-                <!-- 定义每个Item的呈现方式 -->
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <!-- 绑定到单个Item对象 -->
-                        <component:UserComponentItem  Margin="0,0,0,10"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
+            <!-- 用StackPanel垂直排列列表和按钮 -->
+            <StackPanel Orientation="Vertical">
+                <!-- 动态生成的控件列表 -->
+                <ItemsControl ItemsSource="{Binding ItemList}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <component:UserComponentItem Margin="0,0,0,10"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
 
-                <!-- 可选：设置垂直布局 -->
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical"/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-            </ItemsControl>
+                <!-- 添加按钮（独占一行） -->
+                <Button 
+                    Content="添加" 
+                    Height="35"
+                    Margin="0,15,0,0"
+                    HorizontalAlignment="Left"
+                    Click="Add_Click"
+                    Cursor="Hand"
+                    Padding="15,0"
+                    Background="#FF6B8E23" Foreground="White"
+                    BorderThickness="0" Width="802"/>
+            </StackPanel>
+
+
         </ScrollViewer>
     </Grid>
 </Window>

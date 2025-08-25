@@ -63,14 +63,15 @@ namespace WpfAppAi
         /// <summary>
         /// 添加新配置项
         /// </summary>
-        public static void AddItem(Item item)
+        public static void AddItem()
         {
             if (Instance == null)
             {
                 Instance = new Items();
             }
 
-            Instance.ItemList.Add(item);
+            Instance.ItemList.Add(new Item());
+            
         }
 
         /// <summary>

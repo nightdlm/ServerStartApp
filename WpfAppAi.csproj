@@ -13,6 +13,7 @@
     <!-- 分开定义不同类型的资源 -->
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\setting.png" />
+    <Resource Include="Resources\delete.png" />
 	<EmbeddedResource Include="ItemConfig.xml">
 	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	</EmbeddedResource>
@@ -23,10 +24,6 @@
     <None Include="Server\**\*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AntdUI" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
