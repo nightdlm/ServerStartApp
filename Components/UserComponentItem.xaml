@@ -34,9 +34,12 @@
                 <RadioButton Content="是" HorizontalAlignment="Left" Margin="124,216,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
                 <RadioButton Content="否" Margin="183,216,184,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit, Converter={StaticResource BooleanNegationConverter}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GroupName="{Binding Key}" />
 
-                <Image Cursor="Hand"  MouseLeftButtonDown="Remove_Click" HorizontalAlignment="Left" Height="18" Margin="361,20,0,0" VerticalAlignment="Top" Width="20" Source="/Resources/delete.png"/>
+                <Image Cursor="Hand"  MouseLeftButtonDown="Remove_Click" HorizontalAlignment="Right" Height="18" Margin="0,20,20,0" VerticalAlignment="Top" Width="20" Source="/Resources/delete.png"/>
+                <Button x:Name="DownMove" Content="下移" HorizontalAlignment="Right" Margin="0,20,40,0" VerticalAlignment="Top" Click="DownMove_Click" Width="30"/>
+                <Button x:Name="UpMove" Content="上移" HorizontalAlignment="Right" Margin="0,20,80,0" VerticalAlignment="Top" Width="30" Click="UpMove_Click"/>
             </Grid>
         </Border>
+        
 
     </Grid>
 </UserControl>

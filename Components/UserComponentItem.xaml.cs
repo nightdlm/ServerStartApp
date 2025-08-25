@@ -36,5 +36,19 @@ namespace WpfAppAi.Components
             }
         }
 
+        private void DownMove_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Item item)
+            {
+                ConfigOperationUtil.MoveItemDown(item);
+            }
+        }
+
+        private void UpMove_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Item item) {
+                ConfigOperationUtil.MoveItemUp(item);
+            }
+        }
     }
 }

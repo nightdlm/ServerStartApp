@@ -86,5 +86,47 @@ namespace WpfAppAi
 
             return Instance.ItemList.Remove(item);
         }
+
+        /// <summary>
+        /// 将指定项上移一位
+        /// </summary>
+        /// <param name="item">要移动的项</param>
+        /// <returns>如果移动成功则返回true，否则返回false</returns>
+        public static bool MoveItemUp(Item item)
+        {
+            if (Instance == null || Instance.ItemList == null)
+                return false;
+
+            int currentIndex = Instance.ItemList.IndexOf(item);
+            // 检查是否已经在最顶部
+            if (currentIndex <= 0)
+                return false;
+
+            // 移除当前项并插入到上一个位置
+            Instance.ItemList.RemoveAt(currentIndex);
+            Instance.ItemList.Insert(currentIndex - 1, item);
+            return true;
+        }
+
+        /// <summary>
+        /// 将指定项下移一位
+        /// </summary>
+        /// <param name="item">要移动的项</param>
+        /// <returns>如果移动成功则返回true，否则返回false</returns>
+        public static bool MoveItemDown(Item item)
+        {
+            if (Instance == null || Instance.ItemList == null)
+                return false;
+
+            int currentIndex = Instance.ItemList.IndexOf(item);
+            // 检查是否已经在最底部
+            if (currentIndex == -1 || currentIndex >= Instance.ItemList.Count - 1)
+                return false;
+
+            // 移除当前项并插入到下一个位置
+            Instance.ItemList.RemoveAt(currentIndex);
+            Instance.ItemList.Insert(currentIndex + 1, item);
+            return true;
+        }
     }
 }

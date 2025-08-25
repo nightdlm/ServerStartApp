@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Items>
 	<Item>
-		<IsEnabled>false</IsEnabled>
+		<IsEnabled>true</IsEnabled>
 		<Key>CacheServer</Key>
 		<FilePath>Server\redis\redis-server.exe</FilePath>
 		<Port>6390</Port>
@@ -10,15 +10,15 @@
 	</Item>
 
 	<Item>
-		<IsEnabled>false</IsEnabled>
+		<IsEnabled>true</IsEnabled>
 		<Key>InitServer</Key>
 		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
-		<Arg>--initialize-insecure --console</Arg>
+		<Arg>--initialize-insecure --init-file=..\sql\init.sql --console</Arg>
 		<WaitForExit>true</WaitForExit>
 	</Item>
 
 	<Item>
-		<IsEnabled>false</IsEnabled>
+		<IsEnabled>true</IsEnabled>
 		<Key>StorageServer</Key>
 		<FilePath>Server\mysql\bin\mysqld.exe</FilePath>
 		<Port>3309</Port>
@@ -28,7 +28,7 @@
 </Item>
 
 	<Item>
-		<IsEnabled>false</IsEnabled>
+		<IsEnabled>true</IsEnabled>
 		<Key>WebServer</Key>
 		<FilePath>Server\jdk\bin\java.exe</FilePath>
 		<Port>11025</Port>
@@ -38,7 +38,7 @@
 </Item>
 
 	<Item>
-		<IsEnabled>false</IsEnabled>
+		<IsEnabled>true</IsEnabled>
 		<Key>NginxServer</Key>
 		<FilePath>Server\nginx\nginx.exe</FilePath>
 		<Arg>-p Server\nginx\</Arg>
@@ -50,7 +50,7 @@
 		<IsEnabled>true</IsEnabled>
 		<Key>HtmlSever</Key>
 		<FilePath>cmd.exe</FilePath>
-		<Arg>/c start http://192.168.1.50</Arg>
+		<Arg>/c start http://127.0.0.1:11010</Arg>
 		<WaitForExit>false</WaitForExit>
 
 	</Item>
