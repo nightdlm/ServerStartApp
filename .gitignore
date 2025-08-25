@@ -6,3 +6,4 @@ Server/*
 .vs/
 bin/
 /.idea
+obj/
