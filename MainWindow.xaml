@@ -70,6 +70,7 @@
                 </Style>
             </Image.Style>
         </Image>
+        <Label Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="清理控制台日志" HorizontalAlignment="Left" Margin="289,37,0,0" VerticalAlignment="Top" Foreground="#FF8ECEF7"/>
 
     </Grid>
 </Window>

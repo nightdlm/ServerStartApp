@@ -5,24 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfAppAi.Components"
              xmlns:model="clr-namespace:WpfAppAi.Model"
-             xmlns:converters="clr-namespace:WpfAppAi.Common"
+             xmlns:converters="clr-namespace:WpfAppAi.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="400"
              d:DataContext="{d:DesignInstance Type=model:Item}">
     <UserControl.Resources>
+        <converters:BooleanToVisibleConverter x:Key="BooleanToVisibleConverter"/>
         <converters:BooleanNegationConverter x:Key="BooleanNegationConverter"/>
     </UserControl.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1">
             <Grid>
-                <RadioButton x:Name="UserConfigYes" Content="启用" HorizontalAlignment="Left" Margin="32,20,0,0" VerticalAlignment="Top" GroupName="{Binding EnableGroupId}" IsChecked="{Binding IsEnabled,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
-                <RadioButton Content="停用" HorizontalAlignment="Left" Margin="102,20,0,0" VerticalAlignment="Top" GroupName="{Binding EnableGroupId}" IsChecked="{Binding IsEnabled,Converter={StaticResource BooleanNegationConverter},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+
+                <Button Cursor="Hand" x:Name="UserConfigYes" Content="启用" HorizontalAlignment="Left" Margin="33,19,0,0" VerticalAlignment="Top" Width="33" Foreground="White" Background="#FF6DBB6E" Visibility="{Binding IsEnabled, Converter={StaticResource BooleanToVisibleConverter},ConverterParameter=inverse, Mode=TwoWay}" Click="UserConfigYes_Click"/>
+                <Button Cursor="Hand" x:Name="UserConfigNo" Content="停用"  HorizontalAlignment="Left" Margin="33,19,0,0" VerticalAlignment="Top" Width="34" Foreground="White" Background="#FFEA765C" Visibility="{Binding IsEnabled, Converter={StaticResource BooleanToVisibleConverter}, Mode=TwoWay}" Click="UserConfigNo_Click"/>
 
                 <Label Content="服务名：" HorizontalAlignment="Left" Margin="32,50,0,0" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Margin="102,50,0,0" TextWrapping="Wrap" Text="{Binding Key}" VerticalAlignment="Top" Width="271" Height="21"/>
 
                 <Label Content="启动文件：" HorizontalAlignment="Left" Margin="32,80,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Margin="102,80,0,0" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top" Width="271" Height="23"/>
+                <TextBox PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" HorizontalAlignment="Left" Margin="102,80,0,0" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top" Width="271" Height="auto" MinHeight="23" IsReadOnly="True"/>
 
                 <Label Content="启动端口：" HorizontalAlignment="Left" Margin="32,110,0,0" VerticalAlignment="Top"/>
                 <TextBox HorizontalAlignment="Left" Margin="102,110,0,0" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="271" Height="21"/>
@@ -31,15 +33,16 @@
                 <TextBox HorizontalAlignment="Left" Margin="102,140,0,0" TextWrapping="Wrap" Text="{Binding Arg}" VerticalAlignment="Top" Width="271" Height="70" MinLines="4"/>
 
                 <Label Content="等待程序退出：" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top"/>
-                <RadioButton Content="是" HorizontalAlignment="Left" Margin="124,216,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
-                <RadioButton Content="否" Margin="183,216,184,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit, Converter={StaticResource BooleanNegationConverter}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GroupName="{Binding Key}" />
+                <RadioButton Foreground="Red" Content="是" HorizontalAlignment="Left" Margin="124,216,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
+                <RadioButton Foreground="#FF6DBB6E" Content="否" Margin="183,216,184,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit, Converter={StaticResource BooleanNegationConverter}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GroupName="{Binding Key}" />
 
                 <Image Cursor="Hand"  MouseLeftButtonDown="Remove_Click" HorizontalAlignment="Right" Height="18" Margin="0,20,20,0" VerticalAlignment="Top" Width="20" Source="/Resources/delete.png"/>
                 <Button x:Name="DownMove" Content="下移" HorizontalAlignment="Right" Margin="0,20,40,0" VerticalAlignment="Top" Click="DownMove_Click" Width="30"/>
                 <Button x:Name="UpMove" Content="上移" HorizontalAlignment="Right" Margin="0,20,80,0" VerticalAlignment="Top" Width="30" Click="UpMove_Click"/>
+
             </Grid>
         </Border>
-        
+
 
     </Grid>
 </UserControl>

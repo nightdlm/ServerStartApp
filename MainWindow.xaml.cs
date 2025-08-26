@@ -125,6 +125,12 @@ namespace WpfAppAi
             setting.Show();
             this.Hide();
         }
+
+
+        private void Label_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ServerLog.Text = "";
+        }
     }
 
 }

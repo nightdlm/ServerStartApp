@@ -4,9 +4,10 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Data;
 
-namespace WpfAppAi.Common
+namespace WpfAppAi.Converter
 {
     public class BooleanNegationConverter : IValueConverter
     {
@@ -17,7 +18,7 @@ namespace WpfAppAi.Common
             {
                 return !boolValue;
             }
-            return false; // 默认值
+            return false;
         }
 
         // 反转回来（用于双向绑定）

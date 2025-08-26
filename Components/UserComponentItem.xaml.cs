@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.Win32;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -50,5 +52,43 @@ namespace WpfAppAi.Components
                 ConfigOperationUtil.MoveItemUp(item);
             }
         }
+
+        private void TextBox_MouseLeftButtonDown(object sender, RoutedEventArgs e)
+        {
+            // 创建 WPF 专用的 OpenFileDialog（注意：不是 WinForms 的！）
+            OpenFileDialog openFileDialog = new()
+            {
+                DefaultDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Server"),
+                Title = "选择启动文件", // 对话框标题
+                Filter = "可执行文件 (*.exe;*.bat)|*.exe;*.bat|所有文件 (*.*)|*.*", // 同时支持exe和bat文件
+                Multiselect = false // 不允许多选
+            };
+
+            // 显示对话框，若用户点击“打开”
+            if (openFileDialog.ShowDialog() == true)
+            {
+                if (this.DataContext is Item CurrentItem)
+                {
+                    CurrentItem.FilePath = openFileDialog.FileName.Replace(AppDomain.CurrentDomain.BaseDirectory, "");
+                }
+            }
+        }
+
+        private void UserConfigYes_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Item item)
+            {
+                item.IsEnabled = true;
+            }
+        }
+
+        private void UserConfigNo_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Item item)
+            {
+                item.IsEnabled = false;
+            }
+        }
+
     }
 }
