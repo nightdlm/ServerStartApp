@@ -7,7 +7,13 @@
     <Compile Update="Components\UserComponentItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Setting.xaml.cs">
+    <Compile Update="Pages\ServerManagerPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ServerMonitorPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\SettingPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

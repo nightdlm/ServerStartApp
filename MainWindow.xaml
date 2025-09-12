@@ -4,73 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfAppAi"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         x:Class="WpfAppAi.MainWindow"
         mc:Ignorable="d"
         Title="服务管理AI" Height="450" Width="800" MinHeight="450" MinWidth="800" Icon="/Resources/logo.png" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStartupLocation="CenterScreen">
-    <!-- Window只能有一个直接子元素，这里使用Grid -->
     <Grid>
+        <!-- 定义两列布局 -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="0*"/>
+            <!-- 左侧Menu列：固定宽度200 -->
+            <ColumnDefinition Width="80"/>
+            <!-- 右侧Frame列：占据剩余空间 -->
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Cursor="Hand" x:Name="StartServer" Content="一键启动" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Margin="44,20,0,0" Foreground="Black" Background="#FF8DBBF9" Click="StartServer_Click"/>
-        <Button Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" IsEnabled="False" Margin="163,20,0,0"/>
-        <TextBox x:Name="ServerLog" Margin="0,64,0,0" TextWrapping="Wrap" Text="" TextChanged="ServerLog_TextChanged"/>
-        <Image MouseLeftButtonDown="Setting_MouseLeftButtonDown" Cursor="Hand" x:Name="Setting" HorizontalAlignment="Left" Height="30" Margin="738,20,0,0" VerticalAlignment="Top" Width="30" Source="/Resources/setting.png">
-            <!-- 添加样式实现缩放效果 -->
-            <Image.Style>
-                <Style TargetType="Image">
-                    <!-- 初始状态 -->
-                    <Setter Property="Width" Value="30"/>
-                    <Setter Property="Height" Value="30"/>
-                    <Setter Property="Opacity" Value="0.5"/>
-                    <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
-                    <!-- 缩放中心点设为图片中心 -->
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <ScaleTransform ScaleX="1" ScaleY="1"/>
-                            <!-- 初始缩放比例1:1 -->
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <!-- 鼠标移入时 -->
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <!-- 缩放动画：0.1秒内放大到1.2倍 -->
-                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
-                                                 To="1.2" Duration="0:0:0.1"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
-                                                 To="1.2" Duration="0:0:0.1"/>
-                                        <!-- 透明度动画：0.1秒内变为不透明 -->
-                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                                 To="1" Duration="0:0:0.1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.EnterActions>
-                            <!-- 鼠标移出时 -->
-                            <Trigger.ExitActions>
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <!-- 恢复原大小 -->
-                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" 
-                                                 To="1" Duration="0:0:0.1"/>
-                                        <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" 
-                                                 To="1" Duration="0:0:0.1"/>
-                                        <!-- 恢复透明度 -->
-                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" 
-                                                 To="0.5" Duration="0:0:0.1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </Trigger.ExitActions>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Image.Style>
-        </Image>
-        <Label Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="清理控制台日志" HorizontalAlignment="Left" Margin="289,37,0,0" VerticalAlignment="Top" Foreground="#FF8ECEF7"/>
 
+        <Menu>
+            <MenuItem Cursor="Hand" Header="服务管理" Click="ServiceManagement_Click" Width="80"/>
+            <MenuItem Cursor="Hand" Header="服务状态" Click="ServiceStatus_Click" Width="80"/>
+            <MenuItem Cursor="Hand" Header="系统设置" Click="SystemSettings_Click" Width="80"/>
+        </Menu>
+
+        <!-- 右侧Frame容器 -->
+        <Frame Grid.Column="1" x:Name="MainFrame" 
+               NavigationUIVisibility="Hidden"
+            Margin="5"/>
     </Grid>
 </Window>

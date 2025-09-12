@@ -26,4 +26,16 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AntdUI" Version="2.1.4" />
+    <PackageReference Include="HandyControl" Version="3.5.1" />
+    <PackageReference Include="SunnyUI" Version="3.8.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="WebKitBrowser">
+      <HintPath>C:\Users\admin\Downloads\WebKit.NET-0.5-bin-cairo\WebKit.NET-0.5-bin-cairo\bin\WebKitBrowser.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
