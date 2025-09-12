@@ -15,25 +15,25 @@
     </UserControl.Resources>
     <Grid>
         <Border BorderBrush="Black" BorderThickness="1">
-            <Grid>
+            <Grid Margin="0,0,0,0">
 
                 <Button Cursor="Hand" x:Name="UserConfigYes" Content="启用" HorizontalAlignment="Left" Margin="32,14,0,0" VerticalAlignment="Top" Width="55" Foreground="White" Background="#FF6DBB6E" Visibility="{Binding IsEnabled, Converter={StaticResource BooleanToVisibleConverter},ConverterParameter=inverse, Mode=TwoWay}" Click="UserConfigYes_Click"/>
                 <Button Cursor="Hand" x:Name="UserConfigNo" Content="停用"  HorizontalAlignment="Left" Margin="33,14,0,0" VerticalAlignment="Top" Width="55" Foreground="White" Background="#FFEA765C" Visibility="{Binding IsEnabled, Converter={StaticResource BooleanToVisibleConverter}, Mode=TwoWay}" Click="UserConfigNo_Click"/>
 
-                <Label Content="服务名：" HorizontalAlignment="Left" Margin="32,50,0,0" VerticalAlignment="Top" Width="81"/>
+                <Label Content="服务名：" HorizontalAlignment="Left" Margin="30,50,0,0" VerticalAlignment="Top" Width="80"/>
                 <TextBox HorizontalAlignment="Left" Margin="124,50,0,0" TextWrapping="Wrap" Text="{Binding Key}" VerticalAlignment="Top" Width="272" Height="21"/>
 
-                <Label Content="启动文件：" HorizontalAlignment="Left" Margin="32,83,0,0" VerticalAlignment="Top"/>
-                <TextBox PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" HorizontalAlignment="Left" Margin="124,85,0,0" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top" Width="272" Height="auto" MinHeight="23" IsReadOnly="True"/>
+                <Label Content="启动文件：" HorizontalAlignment="Left" Margin="30,85,0,0" VerticalAlignment="Top" Width="80"/>
+                <TextBox PreviewMouseLeftButtonDown="TextBox_MouseLeftButtonDown" HorizontalAlignment="Left" Margin="124,85,0,0" TextWrapping="Wrap" Text="{Binding FilePath}" VerticalAlignment="Top" Width="272" Height="21" IsReadOnly="True"/>
 
-                <Label Content="启动端口：" HorizontalAlignment="Left" Margin="31,113,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="272" Height="21" Margin="124,113,0,0"/>
+                <Label Content="启动端口：" HorizontalAlignment="Left" Margin="30,120,0,0" VerticalAlignment="Top" Width="80"/>
+                <TextBox HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="272" Height="21" Margin="124,120,0,0"/>
 
-                <Label Content="启动参数：" HorizontalAlignment="Left" Margin="31,149,0,0" VerticalAlignment="Top"/>
-                <TextBox HorizontalAlignment="Left" Margin="124,149,0,0" TextWrapping="Wrap" Text="{Binding Arg}" VerticalAlignment="Top" Width="272" Height="58" MinLines="4"/>
+                <Label Content="启动参数：" HorizontalAlignment="Left" Margin="30,155,0,0" VerticalAlignment="Top" Width="80"/>
+                <TextBox HorizontalAlignment="Left" Margin="124,155,0,0" TextWrapping="Wrap" Text="{Binding Arg}" VerticalAlignment="Top" Width="272" Height="58" MinLines="4"/>
 
-                <Label Content="等待退出：" HorizontalAlignment="Left" Margin="31,213,0,0" VerticalAlignment="Top"/>
-                <RadioButton Foreground="Red" Content="是" HorizontalAlignment="Left" Margin="124,220,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
+                <Label Content="等待退出：" HorizontalAlignment="Left" Margin="30,213,0,10" VerticalAlignment="Top" Width="80"/>
+                <RadioButton Foreground="Red" Content="是" HorizontalAlignment="Left" Margin="124,220,20,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" GroupName="{Binding Key}"/>
                 <RadioButton Foreground="#FF6DBB6E" Content="否" Margin="185,220,0,0" VerticalAlignment="Top" IsChecked="{Binding WaitForExit, Converter={StaticResource BooleanNegationConverter}, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged }" GroupName="{Binding Key}" HorizontalAlignment="Left" />
 
                 <Image Cursor="Hand"  MouseLeftButtonDown="Remove_Click" HorizontalAlignment="Right" Height="18" Margin="0,20,10,0" VerticalAlignment="Top" Width="20" Source="/Resources/delete.png"/>
