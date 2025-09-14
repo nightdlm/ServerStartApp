@@ -34,6 +34,16 @@ namespace WpfAppAi.Pages
                 {
                     if (!item.IsEnabled) continue;
 
+                    if (ProcessManager.IsJobRunning(item.Key))
+                    {
+                        LogListSource.AddLog(new LogEntry
+                        {
+                            ServerName = "SYSTEM",
+                            Message = $"({item.Key})服务已运行中..."
+                        });
+                        continue;
+                    }
+
                     string args = " " + item.Arg;
 
                     if (item.Port != 0)
@@ -45,12 +55,12 @@ namespace WpfAppAi.Pages
                         }
                     }
 
-                    ProcessManager.StartProcessWithJobObject(item.Key, item.FilePath, args);
                     LogListSource.AddLog(new LogEntry
                     {
                         ServerName = "SYSTEM",
-                        Message = $"({item.Key})服务启动中...：\n"
+                        Message = $"({item.Key})服务启动中..."
                     });
+                    ProcessManager.StartProcessWithJobObject(item.Key, item.FilePath, args);
 
                     if (item.Port != 0)
                     {

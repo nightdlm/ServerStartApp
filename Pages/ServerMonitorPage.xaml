@@ -27,8 +27,6 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="服务名称" Binding="{Binding ServerName}" Width="*"/>
                 <DataGridTextColumn Header="启动端口" Binding="{Binding Port}" Width="*"/>
-                <DataGridTextColumn Header="PID" Binding="{Binding Pid}" Width="*"/>
-                <DataGridTextColumn Header="状态" Binding="{Binding Status}" Width="*"/>
                 <DataGridTemplateColumn Header="操作" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -36,11 +34,13 @@
                                 <Button Content="启动"
                                         Tag="{Binding}"
                                         Cursor="Hand" 
+                                        Click="StartButton_Click"
                                         Margin="2"
                                         Padding="5,0"
                                         Background="LightGreen"/>
                                 <Button Content="停止" 
                                         Tag="{Binding}"
+                                        Click="StopButton_Click"
                                         Cursor="Hand" 
                                         Margin="2"
                                         Padding="5,0"
