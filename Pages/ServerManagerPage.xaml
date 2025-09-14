@@ -1,32 +1,50 @@
-﻿<Page x:Class="WpfAppAi.Pages.ServerManagerPage"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:WpfAppAi.Pages"
       xmlns:ant="http://schemas.ant.design/wpf"
+      xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:Components="clr-namespace:WpfAppAi.Components" x:Class="WpfAppAi.Pages.ServerManagerPage"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="服务控制">
-
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Cursor="Hand" x:Name="StartServer" Content="一键启动" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Margin="44,20,0,0" Foreground="Black" Background="#FF8DBBF9" Click="StartServer_Click"/>
-        <Button Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" IsEnabled="False" Margin="163,20,0,0"/>
+        <Button Grid.Row="0" Cursor="Hand" x:Name="StartServer" Content="一键启动" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Margin="44,20,0,0" Foreground="Black" Background="#FF8DBBF9" Click="StartServer_Click"/>
+        <Button Grid.Row="0" Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" IsEnabled="False" Margin="163,20,0,0"/>
+
+        <Label Grid.Row="0" Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="清理控制台日志" HorizontalAlignment="Left" Margin="289,30,0,0" VerticalAlignment="Top" Foreground="#FF8ECEF7"/>
 
 
-        <ScrollViewer x:Name="LogViewer" Margin="0,64,0,0" VerticalScrollBarVisibility="Auto"
-         HorizontalScrollBarVisibility="Auto"
-         CanContentScroll="True">
-            <TextBox x:Name="ServerLog" TextWrapping="Wrap" Text="" TextChanged="ServerLog_TextChanged"/>
-        </ScrollViewer>
-
-        <Label Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="清理控制台日志" HorizontalAlignment="Left" Margin="289,30,0,0" VerticalAlignment="Top" Foreground="#FF8ECEF7"/>
+        <ListView x:Name="ServerLogLIst" Grid.Row="1" ItemsSource="{Binding}">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderBrush" Value="LightGray"/>
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="时间" DisplayMemberBinding="{Binding FormattedTime}"/>
+                    <GridViewColumn Header="服务" DisplayMemberBinding="{Binding ServerName}"/>
+                    <GridViewColumn Header="信息" DisplayMemberBinding="{Binding Message}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Components:ToggleButtonComponent HorizontalAlignment="Right" Margin="0,30,20,0" VerticalAlignment="Top" Height="40" Width="40" Loaded="ToggleButtonComponent_Loaded"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,42,60,0" IsHitTestVisible="False" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="zh-cn" Text="自动滚动："/></TextBlock>
 
     </Grid>
 </Page>

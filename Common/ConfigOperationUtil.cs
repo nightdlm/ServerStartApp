@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using WpfAppAi.Common;
 using WpfAppAi.Model;
 
 namespace WpfAppAi
@@ -24,6 +25,7 @@ namespace WpfAppAi
                 Instance = (Items)serializer.Deserialize(fs);
                
             }
+            
         }
 
 

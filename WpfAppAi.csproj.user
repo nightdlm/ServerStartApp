@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>D:\ProgramData\WpfAppAi\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Components\ToggleButtonComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\UserComponentItem.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

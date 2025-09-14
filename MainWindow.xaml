@@ -18,11 +18,34 @@
         </Grid.ColumnDefinitions>
 
 
-        <Menu>
-            <MenuItem Cursor="Hand" Header="服务管理" Click="ServiceManagement_Click" Width="80"/>
-            <MenuItem Cursor="Hand" Header="服务状态" Click="ServiceStatus_Click" Width="80"/>
-            <MenuItem Cursor="Hand" Header="系统设置" Click="SystemSettings_Click" Width="80"/>
-        </Menu>
+        <Grid>
+            <Grid.Resources>
+                <Style x:Key="MenuItemStyle" TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="-10,5,0,0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Height" Value="30"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Resources>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <MenuItem x:Name="ServiceManagementMenu" Grid.Row="1" Cursor="Hand" Header="服务管理" Click="ServiceManagement_Click" Style="{StaticResource MenuItemStyle}"/>
+            <MenuItem x:Name="ServiceStatusMenu" Grid.Row="2" Cursor="Hand" Header="服务状态" Click="ServiceStatus_Click" Style="{StaticResource MenuItemStyle}"/>
+            <MenuItem x:Name="SystemSettingsMenu" Grid.Row="4" Cursor="Hand" Header="系统设置" Click="SystemSettings_Click" Style="{StaticResource MenuItemStyle}"/>
+        </Grid>
 
         <!-- 右侧Frame容器 -->
         <Frame Grid.Column="1" x:Name="MainFrame" 

@@ -15,8 +15,6 @@ namespace WpfAppAi.Model
 
     public class Item : INotifyPropertyChanged
     {
-        // 新增唯一标识属性
-        public string EnableGroupId { get; } = Guid.NewGuid().ToString();
 
         // 字段：存储属性的实际值（与属性分离，用于判断值是否变化）
         private bool _isEnabled = false;

@@ -1,15 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Controls;
+using WpfAppAi.Model;
+using WpfAppAi.Source;
 
 namespace WpfAppAi
 {
     internal class ProcessManager
     {
+
+        private static int updateCounter = 0;
+
         // 用于管理所有作业对象的字典
         private static readonly Dictionary<string, IntPtr> jobHandles = new Dictionary<string, IntPtr>();
         private static readonly Dictionary<string, List<Process>> jobProcesses = new Dictionary<string, List<Process>>();
@@ -74,7 +78,7 @@ namespace WpfAppAi
         /// <param name="fileName">要执行的程序文件名</param>
         /// <param name="arguments">程序参数</param>
         /// <param name="textBox">用于显示输出的TextBox控件</param>
-        public static void StartProcessWithJobObject(string jobKey, string fileName, string arguments, TextBox textBox)
+        public static void StartProcessWithJobObject(string jobKey, string fileName, string arguments)
         {
             // 如果指定键的作业对象不存在，则创建一个新的
             if (!jobHandles.ContainsKey(jobKey))
@@ -127,8 +131,12 @@ namespace WpfAppAi
                 {
                     App.Current.Dispatcher.Invoke(() =>
                     {
-                        textBox.AppendText(e.Data + Environment.NewLine);
-                        textBox.ScrollToEnd();
+
+                        LogListSource.AddLog(new LogEntry { 
+                            ServerName = jobKey,
+                            Message = e.Data
+                        });
+
                     });
                 }
             };
@@ -139,8 +147,11 @@ namespace WpfAppAi
                 {
                     App.Current.Dispatcher.Invoke(() =>
                     {
-                        textBox.AppendText(e.Data + Environment.NewLine);
-                        textBox.ScrollToEnd();
+                        LogListSource.AddLog(new LogEntry
+                        {
+                            ServerName = jobKey,
+                            Message = e.Data
+                        });
                     });
                 }
             };
