@@ -15,14 +15,14 @@
     <Resource Include="Resources\setting.png" />
     <Resource Include="Resources\delete.png" />
 	<EmbeddedResource Include="ItemConfig.xml">
-	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
 	</EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <!-- 其他需要复制的文件 -->
     <None Include="Server\**\*">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

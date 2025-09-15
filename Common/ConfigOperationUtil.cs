@@ -1,8 +1,6 @@
 ﻿
 using System.IO;
-using System.Xml;
 using System.Xml.Serialization;
-using WpfAppAi.Common;
 using WpfAppAi.Model;
 
 namespace WpfAppAi
@@ -15,17 +13,17 @@ namespace WpfAppAi
 
         static ConfigOperationUtil(){
             
-            // 创建XML序列化器（指定目标类型）
-            XmlSerializer serializer = new XmlSerializer(typeof(Items));
-
-            // 读取文件并反序列化
-            using (FileStream fs = new FileStream(configPath, FileMode.Open))
+            // 判断文件是否存在
+            if (!File.Exists(configPath))
             {
-                // 将流内容转换为Items对象
-                Instance = (Items)serializer.Deserialize(fs);
-               
-            }
-            
+                // 如果文件不存在，创建一个空的Items对象并保存到文件中
+                Items emptyItems = new Items();
+                XmlSerializer serializer = new XmlSerializer(typeof(Items));
+                using (FileStream fs = new FileStream(configPath, FileMode.Create))
+                {
+                    serializer.Serialize(fs, emptyItems);
+                }
+            }  
         }
 
 

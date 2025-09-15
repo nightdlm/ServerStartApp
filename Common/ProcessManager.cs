@@ -3,7 +3,6 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Windows.Controls;
 using WpfAppAi.Model;
 using WpfAppAi.Source;
 
@@ -11,8 +10,6 @@ namespace WpfAppAi
 {
     internal class ProcessManager
     {
-
-        private static int updateCounter = 0;
 
         // 用于管理所有作业对象的字典
         private static readonly Dictionary<string, IntPtr> jobHandles = new Dictionary<string, IntPtr>();

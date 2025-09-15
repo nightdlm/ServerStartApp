@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using WpfAppAi.Model;
-using WpfAppAi.Pages;
 
 namespace WpfAppAi.Source
 {
