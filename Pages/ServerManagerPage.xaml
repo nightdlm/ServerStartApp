@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <Button Grid.Row="0" Cursor="Hand" x:Name="StartServer" Content="一键启动" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Margin="44,20,0,0" Foreground="Black" Background="#FF8DBBF9" Click="StartServer_Click"/>
-        <Button Grid.Row="0" Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" IsEnabled="False" Margin="163,20,0,0"/>
+        <Button Grid.Row="0" Cursor="Hand" x:Name="StopServer" Content="一键停止" HorizontalAlignment="Left" VerticalAlignment="Top" Width="72" Height="34" Background="#FFFF4F4F" Foreground="Black" Click="StopServer_Click" Margin="163,20,0,0"/>
 
         <Label Grid.Row="0" Cursor="Hand" MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="清理控制台日志" HorizontalAlignment="Left" Margin="289,30,0,0" VerticalAlignment="Top" Foreground="#FF8ECEF7"/>
 
@@ -39,6 +39,7 @@
                 <GridView>
                     <GridViewColumn Header="时间" DisplayMemberBinding="{Binding FormattedTime}"/>
                     <GridViewColumn Header="服务" DisplayMemberBinding="{Binding ServerName}"/>
+                    <GridViewColumn Header="状态" DisplayMemberBinding="{Binding Status}"/>
                     <GridViewColumn Header="信息" DisplayMemberBinding="{Binding Message}"/>
                 </GridView>
             </ListView.View>

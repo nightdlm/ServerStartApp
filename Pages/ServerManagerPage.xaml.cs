@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Sunny.UI;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using WpfAppAi.Common;
@@ -30,6 +31,15 @@ namespace WpfAppAi.Pages
             {
                 StopServer.IsEnabled = true;
                 StartServer.IsEnabled = false;
+                if (ConfigOperationUtil.Instance.ItemList.IsNullOrEmpty())
+                {
+                    LogListSource.AddLog(new LogEntry
+                    {
+                        ServerName = "SYSTEM",
+                        Message = "请先添加服务"
+                    });
+                    return;
+                }
                 foreach (Item item in ConfigOperationUtil.Instance.ItemList)
                 {
                     if (!item.IsEnabled) continue;
@@ -107,7 +117,10 @@ namespace WpfAppAi.Pages
                     ServerName = "SYSTEM",
                     Message = "已终止并关闭所有已启动进程"
                 });
-                StopServer.IsEnabled = false;
+                
+            }
+            finally {
+                StopServer.IsEnabled = true;
                 StartServer.IsEnabled = true;
             }
         }

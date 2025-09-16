@@ -6,12 +6,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+	<AssemblyName>Dz服务管理</AssemblyName>
+	<ApplicationIcon>Resources\logo.ico</ApplicationIcon>
+	<Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
 
   <ItemGroup>
     <!-- 分开定义不同类型的资源 -->
     <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\logo.ico" />
     <Resource Include="Resources\setting.png" />
     <Resource Include="Resources\delete.png" />
 	<EmbeddedResource Include="ItemConfig.xml">

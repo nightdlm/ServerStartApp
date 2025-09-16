@@ -27,6 +27,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="服务名称" Binding="{Binding ServerName}" Width="*"/>
                 <DataGridTextColumn Header="启动端口" Binding="{Binding Port}" Width="*"/>
+                <DataGridTextColumn Header="服务状态" Binding="{Binding Status}" Width="*"/>
                 <DataGridTemplateColumn Header="操作" Width="100">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

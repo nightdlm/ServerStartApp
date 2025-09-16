@@ -129,10 +129,11 @@ namespace WpfAppAi
                     App.Current.Dispatcher.Invoke(() =>
                     {
 
-                        LogListSource.AddLog(new LogEntry { 
-                            ServerName = jobKey,
-                            Message = e.Data
-                        });
+                        //LogListSource.AddLog(new LogEntry
+                        //{
+                        //    ServerName = jobKey,
+                        //    Message = e.Data
+                        //});
 
                     });
                 }
@@ -144,11 +145,11 @@ namespace WpfAppAi
                 {
                     App.Current.Dispatcher.Invoke(() =>
                     {
-                        LogListSource.AddLog(new LogEntry
-                        {
-                            ServerName = jobKey,
-                            Message = e.Data
-                        });
+                        //LogListSource.AddLog(new LogEntry
+                        //{
+                        //    ServerName = jobKey,
+                        //    Message = e.Data
+                        //});
                     });
                 }
             };
