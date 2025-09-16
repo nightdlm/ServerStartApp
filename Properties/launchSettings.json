@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "WpfAppAi": {
+      "commandName": "Project",
+      "commandLineArgs": "--console\r\n--disabled"
+    }
+  }
+}

@@ -6,12 +6,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+	<AssemblyName>服务管理</AssemblyName>
+	<ApplicationIcon>Resources\logo.ico</ApplicationIcon>
+	<Platforms>AnyCPU;x64;x86</Platforms>
   </PropertyGroup>
 
 
   <ItemGroup>
     <!-- 分开定义不同类型的资源 -->
     <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\logo.ico" />
     <Resource Include="Resources\setting.png" />
     <Resource Include="Resources\delete.png" />
 	<EmbeddedResource Include="ItemConfig.xml">
@@ -28,8 +32,27 @@
 
   <ItemGroup>
     <PackageReference Include="AntdUI" Version="2.1.4" />
+    <PackageReference Include="CefSharp.Wpf" Version="140.1.140" />
     <PackageReference Include="HandyControl" Version="3.5.1" />
     <PackageReference Include="SunnyUI" Version="3.8.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="hasp_net_standard">
+      <HintPath>E:\suanfa\Samples\Licensing\csharp\hasp_net_standard.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="apidsp_windows_x64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="sntl_adminapi_darwin.dylib">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="sntl_adminapi_net_windows.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

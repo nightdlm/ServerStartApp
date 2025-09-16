@@ -129,7 +129,8 @@ namespace WpfAppAi
                     App.Current.Dispatcher.Invoke(() =>
                     {
 
-                        LogListSource.AddLog(new LogEntry { 
+                        LogListSource.AddLog(new LogEntry
+                        {
                             ServerName = jobKey,
                             Message = e.Data
                         });

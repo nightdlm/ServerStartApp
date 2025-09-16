@@ -17,7 +17,8 @@ namespace WpfAppAi.Pages
         {
             InitializeComponent();
             ServerLogLIst.DataContext = LogListSource.GetInstance();
-            if(DynamicConfig.IsAutoScorll){
+            if (DynamicConfig.IsAutoScorll)
+            {
                 InitializeAutoScrollTimer();
             }
         }
@@ -153,7 +154,8 @@ namespace WpfAppAi.Pages
             if (DynamicConfig.IsAutoScorll)
             {
                 InitializeAutoScrollTimer();
-            } else
+            }
+            else
             {
                 StopAutoScrollTimer();
             }
