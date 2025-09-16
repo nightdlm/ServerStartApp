@@ -16,14 +16,15 @@ namespace WpfAppAi
             // 判断文件是否存在
             if (!File.Exists(configPath))
             {
-                // 如果文件不存在，创建一个空的Items对象并保存到文件中
-                Items emptyItems = new Items();
+                Instance = new Items();
+            } else {
+                // 如果文件存在，加载并解析XML数据
                 XmlSerializer serializer = new XmlSerializer(typeof(Items));
-                using (FileStream fs = new FileStream(configPath, FileMode.Create))
+                using (FileStream fs = new FileStream(configPath, FileMode.Open))
                 {
-                    serializer.Serialize(fs, emptyItems);
+                    Instance = (Items)serializer.Deserialize(fs);
                 }
-            }  
+            }
         }
 
 
