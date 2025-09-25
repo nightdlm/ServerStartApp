@@ -18,9 +18,7 @@ namespace WpfAppAi
             if (!File.Exists(configPath))
             {
                 Instance = new Items();
-            }
-            else
-            {
+            } else {
                 // 如果文件存在，加载并解析XML数据
                 XmlSerializer serializer = new XmlSerializer(typeof(Items));
                 using (FileStream fs = new FileStream(configPath, FileMode.Open))
