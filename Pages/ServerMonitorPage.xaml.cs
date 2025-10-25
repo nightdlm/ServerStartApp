@@ -53,9 +53,10 @@ namespace WpfAppAi.Pages
 
                 // 在这里执行启动操作,先通过key去查询ItemList对应的配置项
                 var item = ConfigOperationUtil.Instance.ItemList.FirstOrDefault(x => x.Key == serverInfo.ServerName);
-                if(item != null)
+                if (item != null)
                 {
-                    try {
+                    try
+                    {
                         if (item.Port != 0)
                         {
                             bool isUse = ProcessManager.IsPortInUse(item.Port);
@@ -71,14 +72,17 @@ namespace WpfAppAi.Pages
                         });
                         MessageBox.Show($"启动中，具体信息查询控制台");
                         ProcessManager.StartProcessWithJobObject(item.Key, item.FilePath, " " + item.Arg);
-                        
-                    } catch (Exception ex) {
+
+                    }
+                    catch (Exception ex)
+                    {
                         LogListSource.AddLog(new LogEntry
                         {
                             ServerName = "SYSTEM",
                             Message = $"({item.Key})服务启动失败：" + ex.Message
                         });
-                    };
+                    }
+                    ;
                 }
             }
         }
@@ -101,9 +105,11 @@ namespace WpfAppAi.Pages
                     if (!ProcessManager.IsJobRunning(serverInfo.ServerName))
                     {
                         MessageBox.Show($"未发现({serverInfo.ServerName}运行中", "提示", MessageBoxButton.OK, MessageBoxImage.Information);
-                    } else{
-                    // 在这里执行停止操作
-                    ProcessManager.TerminateJobObject(serverInfo.ServerName);
+                    }
+                    else
+                    {
+                        // 在这里执行停止操作
+                        ProcessManager.TerminateJobObject(serverInfo.ServerName);
                         LogListSource.AddLog(new LogEntry
                         {
                             ServerName = "SYSTEM",

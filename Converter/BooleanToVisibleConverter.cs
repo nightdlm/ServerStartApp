@@ -28,7 +28,7 @@ namespace WpfAppAi.Converter
                 // 正常逻辑：源值为true时显示，false时隐藏
                 return boolValue ? Visibility.Visible : Visibility.Collapsed;
             }
-           
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

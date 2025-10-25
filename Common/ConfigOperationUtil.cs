@@ -11,8 +11,9 @@ namespace WpfAppAi
 
         public static Items Instance { get; set; } = new Items();
 
-        static ConfigOperationUtil(){
-            
+        static ConfigOperationUtil()
+        {
+
             // 判断文件是否存在
             if (!File.Exists(configPath))
             {
@@ -72,7 +73,7 @@ namespace WpfAppAi
             }
 
             Instance.ItemList.Add(new Item());
-            
+
         }
 
         /// <summary>

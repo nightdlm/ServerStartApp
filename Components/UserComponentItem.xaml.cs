@@ -19,11 +19,13 @@ namespace WpfAppAi.Components
             InitializeComponent();
         }
 
-        private void Remove_Click(object sender,MouseButtonEventArgs e) {
+        private void Remove_Click(object sender, MouseButtonEventArgs e)
+        {
             if (DataContext is Item item)
             {
                 string name = item.Key;
-                if (name == string.Empty) {
+                if (name == string.Empty)
+                {
                     name = "未定义";
                 }
                 // 显示确认对话框
@@ -48,7 +50,8 @@ namespace WpfAppAi.Components
 
         private void UpMove_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is Item item) {
+            if (DataContext is Item item)
+            {
                 ConfigOperationUtil.MoveItemUp(item);
             }
         }
@@ -58,7 +61,7 @@ namespace WpfAppAi.Components
             // 创建 WPF 专用的 OpenFileDialog（注意：不是 WinForms 的！）
             OpenFileDialog openFileDialog = new()
             {
-                DefaultDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Server"),
+                DefaultDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Server"),
                 Title = "选择启动文件", // 对话框标题
                 Filter = "可执行文件 (*.exe;*.bat)|*.exe;*.bat|所有文件 (*.*)|*.*", // 同时支持exe和bat文件
                 Multiselect = false // 不允许多选
